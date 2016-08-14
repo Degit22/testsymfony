@@ -1,0 +1,12 @@
+{% extends '::index.html.twig' %}
+
+  {% block content %}
+     <h1>{{ post.getTitle() }}</h1>
+
+    <p>{{ post.getContent() }}</p>
+
+    <hr/>
+    <small>Запись создана {{ post.getDate().format("Y-m-d H:i:sO") }}</small>
+    <p>{{ post.getAuthor() }}</p>
+  {% endblock %}
+  

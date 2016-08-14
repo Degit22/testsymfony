@@ -1,0 +1,38 @@
+{% extends '::index.html.twig' %}
+
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <h2>
+                <a href="{{ path('news_show', { name : post.link }) }}">
+                    {{ post.title }}
+                </a>
+            </h2>
+            <small>Запись создана {{ post.author }} {{ post.getDate().format("Y-m-d") }} </small><br />
+
+            <span class="slider">[Слайдер]</span>
+            <p class="short">{{ post.short }}</p>
+        </article>
+    {% else %}
+        <div class="well">Новостей не найдено.</div>
+    {% endfor %}
+
+   {% if maxPages > 1 %}
+    <ul class="pagination pagination-sm">
+
+        <li {{ thisPage == 1 ? 'class="disabled"' }}>
+            <a href="{{ path('news_list_paginated', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>
+        </li>
+
+        {% for i in 1..maxPages %}
+        <li {{ thisPage == i ? 'class="active"' }}>
+        <a href="{{ path('news_list_paginated', {page: i}) }}">{{ i }}</a>
+        </li>
+        {% endfor %}
+
+        <li {{ thisPage == maxPages ? 'class="disabled"' }}>
+            <a href="{{ path('news_list_paginated', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
+        </li>
+    </ul>
+{% endif %}
+{% endblock %}

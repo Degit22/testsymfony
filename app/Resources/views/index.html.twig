@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="wrapper">
+        <header class="header">{% block header %}<h1 style="padding:20px">Новости</h1>{% endblock %}</header>
+        <main class="content">{% block content %}{% endblock %}</main>
+    </div>
+    <footer class="footer">{% block footer %}<a href="{{ path('admin') }}" style="padding:5px">Admin</a>{% endblock %}</footer>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	height: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
+}
+body {
+	font: 12px/18px Arial, sans-serif;
+	width: 100%;
+	height: 100%;
+}
+.wrapper {
+	width: 1000px;
+	margin: 0 auto;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+.header {
+	height: 50px;
+	background: #eedfac;
+}
+.content {
+	padding: 0 0 50px;
+}
+a, a:visited{
+	color: #667;
+}
+a:hover{
+	text-decoration: none;
+}
+.footer {
+	width: 1000px;
+	margin: -50px auto 0;
+	height: 50px;
+	background: #eedfac;
+	position: relative;
+}
+ul.pagination li {
+	display: inline-block;
+	margin-left: 5px;
+	padding: 5px 0;
+}
+ul.pagination li.active a{
+	font-weight: bold;
+	text-decoration: none;
+}
+ul.pagination li.disabled a{
+	text-decoration: none;
+}
+.post h2{
+	padding: 10px 10px 5px;
+}
+.slider{
+	cursor: pointer;
+}
+</style>
+{% endblock %}

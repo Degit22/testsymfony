@@ -1,0 +1,9 @@
+{% extends '::index.html.twig' %}
+
+  {% block content %}
+     <h1 style="padding:20px">{{ post.getTitle() }}</h1>
+    <small>Запись создана {{ post.getAuthor() }} в {{ post.getDate().format("Y-m-d H:i:sO") }}</small>
+    <p>{{ post.getContent() }}</p>
+    <br />
+    <p><a href="{{ path('news_list2') }}">К списку новостей</a></p>
+  {% endblock %}
